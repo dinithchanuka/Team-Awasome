@@ -9,11 +9,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="navbar-item active">
-                            <a href="index.html" class="nav-link">Home</a>
+                            <a href="main.php" class="nav-link">Home</a>
                         </li>
-                        <li class="navbar-item">
-                            <a href="works.html" class="nav-link">Works</a>
-                        </li>
+                        
                         <li class="navbar-item">
                             <a href="about.html" class="nav-link">About</a>
                         </li>
