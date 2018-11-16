@@ -23,7 +23,10 @@
 
                         </li> -->
                         <div class="navbar-item">
-                            <a href="#" class="btn red" >Sign Out</a><br>
+                            <a href="signin.php" class="btn red">Sign In</a><br>
+                        </div>
+                        <div>
+                            <a href="signup.php" class="btn red" action="signup.php">Sign Up</a>
                         </div>
                     </ul>
                 </div>
