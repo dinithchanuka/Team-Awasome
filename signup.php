@@ -1,7 +1,7 @@
 <?php include_once('head.php')?>
 <?php include_once('header.php')?>
 <?php include_once('script.php')?>
-
+<?php include_once('db.php')?>
 <!-- <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -70,12 +70,13 @@ a {
 </style>
 </head> -->
 <body>
+
     <section>
     <br>
     <br>
     <br>
 
-<form action="/action_page.php">
+<form action="">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
@@ -85,7 +86,7 @@ a {
     <input type="text" placeholder="Enter Name" name="name" required><br>
 
     <label for="faculty"><b>Faculty</b></label>
-        <select id="country" name="country">
+        <select id="faculty" name="faculty">
           <option value="ucss">UCSC</option>
           <option value="science">Science</option>
           <option value="art">Art</option>
@@ -98,17 +99,41 @@ a {
     <input type="text" placeholder="Enter Email" name="email" required><br>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required><br>
+    <input type="password" placeholder="Enter Password" name="password" required><br>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required><br>
-    <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn" name="submit">Submit</button>
   </div>
   
 </form>
-
 </body>
+
+<?php
+	
+	include_once('db.php');
+		if (!$conn){
+	     	echo "Failed to connect to MySQL";
+	}
+	if (isset( $_POST ["submit"])){
+		$name =$_POST['name'];
+		$email =$_POST['email'];
+		$faculty =$_POST['faculty'];
+		$password =$_POST['password'];
+		$confirmPassword =$_POST['confirmPassword'];
+
+	 
+
+
+	$sql = "INSERT INTO students(name, email,faculty,password)
+	VALUES ('$name', '$email','$faculty',$password')";
+	
+
+	if (mysqli_query($conn,$sql)){ 
+	   echo "New record created successfully";
+	} else {
+		echo "Error: ";
+	}
+
+}
 

@@ -26,7 +26,7 @@
                             <a href="signin.php" class="btn red">Sign In</a><br>
                         </div>
                         <div>
-                            <a href="signup.php" class="btn red" action="signup.php">Sign Up</a>
+                            <a href="signup.php" class="btn red">Sign Up</a>
                         </div>
                     </ul>
                 </div>
