@@ -76,7 +76,7 @@ a {
     <br>
     <br>
 
-<form action="">
+<form action="signup.php" method="POST">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
@@ -87,12 +87,12 @@ a {
 
     <label for="faculty"><b>Faculty</b></label>
         <select id="faculty" name="faculty" id="faculty">
-          <option value="ucss">UCSC</option>
-          <option value="science">Science</option>
-          <option value="art">Art</option>
-          <option value="law">Law</option>
-          <option value="management">Management</option>
-          <option value="other">Other</option>
+          <option value="UCSC">UCSC</option>
+          <option value="Science">Science</option>
+          <option value="Art">Art</option>
+          <option value="Law">Law</option>
+          <option value="Management">Management</option>
+          <option value="Other">Other</option>
         </select><br>
 
     <label for="email"><b>Email</b></label>
@@ -102,44 +102,48 @@ a {
     <input type="password" placeholder="Enter Password" name="password" id="password" required><br>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required><br>
+    <input type="password" placeholder="Repeat Password" name="rpassword" id="rpassword" required><br>
     <button type="submit" class="registerbtn" name="submit">Submit</button>
   </div>
   
 </form>
-</body>
 
 <?php
-	
-	$conn=mysqli_connect("localhost","root","","printshop");
-
-    if(!$conn)
-    {
-    die("Connection failed: " . mysqli_connect_error());
-    }
-
-	if (!$conn){
-	     	echo "Failed to connect to MySQL";
-	}
-	if (isset( $_POST ["submit"])){
-		$name =$_POST['name'];
-		$email =$_POST['email'];
-		$faculty =$_POST['faculty'];
-		$password =$_POST['password'];
-		// $confirmPassword =$_POST['confirmPassword'];
-
-	 
 
 
-	$sql = "INSERT INTO students('name', 'email','faculty','password')
-	VALUES ('$name', '$email','$faculty',$password')";
-	
-
-	if (mysqli_query($conn,$sql)){ 
-	   echo "New record created successfully";
-	} else {
-		echo "Error: ";
-	}
-
+$con=mysqli_connect("localhost","root","");
+if(!$con){
+	echo "Not connected to server";
 }
 
+if(!mysqli_select_db($con,"printshop")){
+	echo "database not selected";
+}
+
+$name = $_POST['name'];
+$email= $_POST['email'];
+$faculty = $_POST['faculty'];
+$password = $_POST['password'];
+$rpassword = $_POST['rpassword'];
+
+
+if(($password==$rpassword)){
+	
+	$INSERT = "INSERT Into students(name,email,faculty,password) 
+		values('$name','$email','$faculty','$password')";
+
+
+}
+else{
+	echo "Error!";
+}
+
+if(!mysqli_query($con,$INSERT)){
+	echo "not inserted";
+}
+else{
+	echo "inserted";
+}
+
+?>
+</body>
