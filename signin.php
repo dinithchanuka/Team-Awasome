@@ -28,7 +28,7 @@ $query = mysql_query("select * from students where password='$password' AND name
 $rows = mysql_num_rows($query);
 if ($rows == 1) {
 $_SESSION['login_user']=$name; // Initializing Session
-header("location: index.php"); // Redirecting To Other Page
+header("location: dashbord.php"); // Redirecting To Other Page
 } else {
 $error = "Username or Password is invalid";
 }
@@ -114,7 +114,7 @@ mysql_close($connection); // Closing Connection
       <div class = "container">
       
          <form class = "form-signin" role = "form" 
-            action = "" method = "post">
+            action = "dashbord.php" method = "post">
             
             <label>Username:</label>
             <input type = "text" class = "form-control" 

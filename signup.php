@@ -69,6 +69,75 @@ a {
 }
 </style>
 </head> -->
+
+<head>
+
+    <link href = "css/bootstrap.min.css" rel = "stylesheet">
+
+<style>
+         body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #C0C0C0;
+         }
+         
+         .form-signup {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+            color: #017572;
+         }
+         
+         .form-signin .form-signin-heading,
+         .form-signin .checkbox {
+            margin-bottom: 10px;
+         }
+         
+         .form-signup .checkbox {
+            font-weight: normal;
+         }
+         
+         .form-signup .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+         }
+         
+         .form-signup .form-control:focus {
+            z-index: 2;
+         }
+         
+         .form-signup input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            border-color:#017572;
+         }
+         
+         .form-signup input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-color:#017572;
+         }
+         
+         .form-signup select[type="faculty"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-color:#017572;
+         }
+         h2{
+            text-align: center;
+            color: #017572;
+         }
+      </style>
+</head>
+
 <body>
 
     <section>
@@ -76,17 +145,16 @@ a {
     <br>
     <br>
 
-<form action="signup.php" method="POST">
+<form class="signup" action="signup.php" method="POST">
   <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
+    <br><br><br>
     <hr>
 
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
+    <input type="text" placeholder="Enter Name" name="name" id="name" required class = "form-control"><br>
 
     <label for="faculty"><b>Faculty</b></label>
-        <select id="faculty" name="faculty" id="faculty">
+        <select id="faculty" name="faculty" id="faculty" class="form-control">
           <option value="UCSC">UCSC</option>
           <option value="Science">Science</option>
           <option value="Art">Art</option>
@@ -96,14 +164,15 @@ a {
         </select><br>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required class = "form-control"><br>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" id="password" required><br>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required class = "form-control"><br>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="rpassword" id="rpassword" required><br>
-    <button type="submit" class="registerbtn" name="submit">Submit</button>
+    <input type="password" placeholder="Repeat Password" name="rpassword" id="rpassword" required class = "form-control"><br>
+    
+    <button type="submit" class = "btn btn-lg btn-primary btn-block" name="submit">Submit</button>
   </div>
   
 </form>
