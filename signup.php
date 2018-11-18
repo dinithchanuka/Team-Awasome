@@ -83,10 +83,10 @@ a {
     <hr>
 
     <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Name" name="name" required><br>
+    <input type="text" placeholder="Enter Name" name="name" id="name" required><br>
 
     <label for="faculty"><b>Faculty</b></label>
-        <select id="faculty" name="faculty">
+        <select id="faculty" name="faculty" id="faculty">
           <option value="ucss">UCSC</option>
           <option value="science">Science</option>
           <option value="art">Art</option>
@@ -96,13 +96,13 @@ a {
         </select><br>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required><br>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required><br>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required><br>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required><br>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required><br>
     <button type="submit" class="registerbtn" name="submit">Submit</button>
   </div>
   
@@ -111,8 +111,14 @@ a {
 
 <?php
 	
-	include_once('db.php');
-		if (!$conn){
+	$conn=mysqli_connect("localhost","root","","printshop");
+
+    if(!$conn)
+    {
+    die("Connection failed: " . mysqli_connect_error());
+    }
+
+	if (!$conn){
 	     	echo "Failed to connect to MySQL";
 	}
 	if (isset( $_POST ["submit"])){
@@ -120,12 +126,12 @@ a {
 		$email =$_POST['email'];
 		$faculty =$_POST['faculty'];
 		$password =$_POST['password'];
-		$confirmPassword =$_POST['confirmPassword'];
+		// $confirmPassword =$_POST['confirmPassword'];
 
 	 
 
 
-	$sql = "INSERT INTO students(name, email,faculty,password)
+	$sql = "INSERT INTO students('name', 'email','faculty','password')
 	VALUES ('$name', '$email','$faculty',$password')";
 	
 
